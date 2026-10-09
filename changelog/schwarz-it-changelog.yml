@@ -1,0 +1,7 @@
+generated: '2026-10-09'
+method: none
+source: https://api.github.com/repos/SchwarzIT/api-linter-service/releases
+entries: []
+note: >-
+  The api-linter-service repository has no GitHub releases and no tags (GitHub API returned empty
+  lists), and no CHANGELOG is documented in the README. Source version is 1.1.0 (package.json).

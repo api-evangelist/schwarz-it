@@ -1,0 +1,33 @@
+{
+  "provider": "schwarz-it",
+  "sources": [
+    "_original/schwarz-it-api-linter-service-openapi.json",
+    "schwarz-it-api-linter-service-openapi.yml"
+  ],
+  "outputs": [
+    "schwarz-it-health-probe-api-openapi.yml",
+    "schwarz-it-lintings-api-openapi.yml",
+    "schwarz-it-rules-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/schwarz-it-api-linter-service-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "schwarz-it-api-linter-service-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "schwarz-it-api-linter-service-openapi.json: declared missing tag: health-probe",
+    "schwarz-it-api-linter-service-openapi.json: declared missing tag: lintings",
+    "schwarz-it-api-linter-service-openapi.json: declared missing tag: rules",
+    "schwarz-it-api-linter-service-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "schwarz-it-api-linter-service-openapi.yml: declared missing tag: health-probe",
+    "schwarz-it-api-linter-service-openapi.yml: declared missing tag: lintings",
+    "schwarz-it-api-linter-service-openapi.yml: declared missing tag: rules",
+    "tag 'health-probe' spans 2 source specs (schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml): per-path servers applied",
+    "tag 'lintings' spans 2 source specs (schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml): per-path servers applied",
+    "tag 'rules' spans 2 source specs (schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml): per-path servers applied",
+    "apis.yml register: written (+3 apis, 3 total)"
+  ],
+  "skipped": []
+}

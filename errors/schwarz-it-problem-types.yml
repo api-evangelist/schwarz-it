@@ -1,0 +1,19 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/schwarz-it-api-linter-service-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 3
+  statuses_declared: 1
+problems:
+- status: 400
+  title: Bad Request
+  description: '"apiType" query param is missing.'
+  operations: 2
+  media_types: []
+  schema: null

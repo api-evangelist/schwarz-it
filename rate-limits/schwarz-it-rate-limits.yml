@@ -1,0 +1,7 @@
+name: Schwarz IT API Linting Service rate limits
+generated: '2026-10-09'
+method: none
+source: https://github.com/SchwarzIT/api-linter-service
+limit_count: 0
+limits: []
+note: No rate limits are documented in the README or the OpenAPI; the service is self-hosted, so limits are set by whoever deploys it.

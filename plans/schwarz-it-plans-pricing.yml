@@ -1,0 +1,16 @@
+name: Schwarz IT API Linting Service plans
+generated: '2026-10-09'
+method: none
+source: https://github.com/SchwarzIT/api-linter-service
+audience: unclear
+pricing_basis: none
+published: false
+plan_count: 0
+plans: []
+delivery:
+  mode: self-hosted
+  evidence: "You should always start the API using Docker-Compose."
+  open_source_license: Apache-2.0
+note: >-
+  No pricing or plans are published. The API Linting Service is open-source software (GitHub license
+  Apache-2.0) run from source with docker-compose; there is no Schwarz-operated hosted offering.

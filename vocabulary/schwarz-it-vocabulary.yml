@@ -1,0 +1,35 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/schwarz-it-api-linter-service-openapi.yml
+vocabulary:
+  name: Schwarz IT Domain Vocabulary
+  description: 'Terms declared by Schwarz IT''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-09'
+  terms:
+  - term: CreateLintingDto
+    definition: 'Object declared by the contract with fields: apiType, apiSpecAsBase64.'
+    tags:
+    - Object
+    source: openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/CreateLintingDto
+  - term: SpectralResultPosition
+    definition: 'Object declared by the contract with fields: line, character.'
+    tags:
+    - Object
+    source: openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/SpectralResultPosition
+  - term: SpectralResultRange
+    definition: 'Object declared by the contract with fields: start, end.'
+    tags:
+    - Object
+    source: openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/SpectralResultRange
+  - term: SpectralResult
+    definition: 'Object declared by the contract with fields: path, code, range, message, severity, source, tags.'
+    tags:
+    - Object
+    source: openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/SpectralResult
+  - term: CreatedLintingDto
+    definition: 'Object declared by the contract with fields: description, linkApiRules, highestSeverityLevel, isValidSpec, lintingResults.'
+    tags:
+    - Object
+    source: openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/CreatedLintingDto

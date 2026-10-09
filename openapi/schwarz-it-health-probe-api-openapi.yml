@@ -1,0 +1,36 @@
+openapi: 3.2.0
+info:
+  title: Schwarz It Health Probe API
+  version: 1.0.0
+  contact:
+    name: YOUR_CONTACT_NAME
+    url: YOUR_CONTACT_LINK
+    email: YOUR_CONTACT@EMAIL.COM
+  description: 'Operations tagged health-probe across 2 of this provider''s published API definitions: schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: http://localhost:3001
+- url: YOUR_PROD_SERVER_NAME
+tags:
+- name: health-probe
+paths:
+  /.well-known/live:
+    get:
+      operationId: HealthProbeController_returnLive
+      summary: Health probe controller return live
+      description: Health probe endpoint.
+      parameters: []
+      responses:
+        '200':
+          description: Service is live.
+      tags:
+      - health-probe
+      x-summary-source: derived
+    servers:
+    - url: http://localhost:3001
+    - url: YOUR_PROD_SERVER_NAME
+externalDocs:
+  description: YOUR_DOCS_NAME
+  url: YOUR_DOCS_LINK
+x-refined-from:
+- schwarz-it-api-linter-service-openapi.json
+- schwarz-it-api-linter-service-openapi.yml

@@ -1,0 +1,53 @@
+generated: '2026-10-09'
+method: derived
+status: candidate
+name: Schwarz IT API Linting Service (candidate MCP tools)
+description: >-
+  No official MCP server from Schwarz IT was found. The SchwarzIT GitHub organization has no
+  repository matching "mcp" (GitHub search org:SchwarzIT mcp returned 0 results, 2026-10-09), and
+  the pre-flight contract discovery on api.jobs.schwarz / jobs.schwarz recorded mcp: absent. This is a
+  candidate tool list DERIVED from the three operations in the self-hosted API Linting Service OpenAPI.
+  The service has no Schwarz-operated public base URL (servers are http://localhost:3001 and a
+  YOUR_PROD_SERVER_NAME placeholder), so any server would wrap a self-hosted deployment.
+source: openapi/schwarz-it-api-linter-service-openapi.yml
+search_evidence:
+- url: https://api.github.com/search/repositories?q=org:SchwarzIT+mcp
+  result: total_count 0
+- url: https://it.schwarz/llms.txt
+  result: 200 but redirects to https://schwarz-digits.de/ homepage HTML (not an llms.txt)
+deployment:
+  mode: none
+  auth: none
+  verified: derived
+tools:
+- name: get_company_api_rules
+  description: Get the company API linting rules (Spectral ruleset) as YAML for an API type.
+  operationId: RulesController_getCompanyApiRules
+  method: GET
+  path: /api-linting/api/v1/rules
+  inputs:
+    apiType:
+      type: string
+      required: true
+      enum: [backend_for_frontend, legacy_api, product_api]
+  readOnly: true
+- name: create_api_linting
+  description: Lint a base64-encoded OpenAPI document against the company API rules for an API type.
+  operationId: LintingsController_createLinting
+  method: POST
+  path: /api-linting/api/v1/lintings
+  inputs:
+    apiType:
+      type: string
+      enum: [backend_for_frontend, legacy_api, product_api]
+    apiSpecAsBase64:
+      type: string
+      description: The base64 representation of your API spec.
+  readOnly: false
+  note: Creates a linting result but has no side effects beyond the response; safe to retry.
+- name: check_liveness
+  description: Health probe for the linting service.
+  operationId: HealthProbeController_returnLive
+  method: GET
+  path: /.well-known/live
+  readOnly: true

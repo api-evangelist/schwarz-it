@@ -1,0 +1,67 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist overlay for the Schwarz IT API Linting Service
+  version: 1.0.0
+extends: ../openapi/_original/schwarz-it-api-linter-service-openapi.yml
+x-generated: '2026-10-09'
+x-method: generated
+x-source: openapi/_original/schwarz-it-api-linter-service-openapi.json
+x-rationale: >-
+  The published OpenAPI still carries its template placeholders (info.title YOUR_LINTING_API_TITLE,
+  description YOUR_API_DESCRIPTION, contact YOUR_CONTACT_*, server YOUR_PROD_SERVER_NAME, tag
+  YOUR_API_TAG) and has empty operation summaries. This overlay replaces them with values taken from
+  the repository (https://github.com/SchwarzIT/api-linter-service) and the operations' own
+  descriptions, without mutating the original. Nothing about auth is added: the contract declares no
+  security scheme and none is documented.
+actions:
+- target: $.info
+  description: Replace template placeholder title and description.
+  update:
+    title: Schwarz IT API Linting Service
+    description: >-
+      Open-source, self-hosted RESTful service from Schwarz IT that provides API linting as a service
+      on top of the Spectral linter SDK, checking OpenAPI documents against company API rules.
+    x-provider: Schwarz IT
+- target: $.info.contact
+  description: Remove placeholder contact; point to the source repository.
+  remove: true
+- target: $.info
+  update:
+    contact:
+      name: SchwarzIT on GitHub
+      url: https://github.com/SchwarzIT/api-linter-service
+- target: $.servers[?(@.url == 'YOUR_PROD_SERVER_NAME')]
+  description: The production server is a placeholder; there is no Schwarz-operated public host.
+  remove: true
+- target: $.servers[?(@.url == 'http://localhost:3001')]
+  update:
+    description: Local self-hosted deployment (default port from the published contract).
+- target: $.tags
+  description: Replace placeholder tag with the tags actually used by operations.
+  remove: true
+- target: $
+  update:
+    tags:
+    - name: rules
+      description: Company API linting rules (Spectral ruleset).
+    - name: lintings
+      description: Lint an OpenAPI document against company rules.
+    - name: health-probe
+      description: Service liveness.
+- target: $.paths['/api-linting/api/v1/rules'].get
+  update:
+    summary: Get company API linting rules
+    x-agent-hints:
+      readOnly: true
+- target: $.paths['/api-linting/api/v1/lintings'].post
+  update:
+    summary: Create an API linting
+    x-agent-hints:
+      readOnly: false
+      idempotent: true
+      note: Lints the submitted spec and returns the result; no persistent resource is documented.
+- target: $.paths['/.well-known/live'].get
+  update:
+    summary: Liveness probe
+    x-agent-hints:
+      readOnly: true

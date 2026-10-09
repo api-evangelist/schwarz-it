@@ -1,0 +1,30 @@
+generated: '2026-10-09'
+method: derived
+source: openapi/schwarz-it-api-linter-service-openapi.yml
+docs: https://github.com/SchwarzIT/api-linter-service
+auth:
+  style: none declared
+  note: No securitySchemes in the contract; see authentication/schwarz-it-authentication.yml.
+versioning:
+  style: path
+  note: Operations live under /api-linting/api/v1/ (GET /api-linting/api/v1/rules, POST /api-linting/api/v1/lintings).
+idempotency:
+  coverage: none
+  note: The single write operation (LintingsController_createLinting) declares no idempotency key, and the README documents none.
+pagination:
+  style: none
+  note: No pagination parameters on either collection-style operation.
+health:
+  endpoint: /.well-known/live
+  operationId: HealthProbeController_returnLive
+errors:
+  note: Only bare 400 responses with descriptions and no response schema ("Provided request body is missing mandatory properties."); no documented error envelope.
+rate_limit_signaling:
+  note: None documented; see rate-limits/.
+reversibility:
+  coverage: none
+  note: >-
+    The only write, POST /api-linting/api/v1/lintings (LintingsController_createLinting, "Create a new API
+    linting."), returns 201 with a CreatedLintingDto of Spectral results. The contract has no GET, DELETE or
+    cancel operation on lintings, and neither the contract nor the README documents a reversal path or
+    window.

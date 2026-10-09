@@ -1,23 +1,144 @@
 aid: schwarz-it
+
 name: Schwarz IT
-description: 'Schwarz IT is a company surfaced via the API Evangelist harvest backlog (source: spectral-ruleset-web)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Schwarz IT (Schwarz IT KG, Neckarsulm, Germany) is the IT service company of the Schwarz Group (Lidl, Kaufland), describing itself
+  on GitHub as "the technological heartbeat of the companies of Schwarz Group". It is listed as an affiliated company of Schwarz Digits, the group's
+  IT and digital division, and hosts the Schwarz Digits website. Its public GitHub organization publishes the Schwarz API rule definitions for
+  the Spectral API linter (api-linter-rules), a Spectral IntelliJ plugin, an API-linting-as-a-service project, a Kotlin RFC 9457 problem-details
+  library, community STACKIT Go client and Terraform provider, and SAP/ABAP open-source components.
+
 url: https://raw.githubusercontent.com/api-evangelist/schwarz-it/refs/heads/main/apis.yml
+
+image: https://avatars.githubusercontent.com/u/25613864?v=4
+
 x-type: company
+
 x-source: harvest:spectral-ruleset-web
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-09 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-09'
+
 modified: '2026-10-09'
+
 tags:
 - Company
-apis: []
+- API Governance
+- API Linting
+- Spectral
+- OpenAPI
+- Retail
+- Germany
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: DomainSecurity
+  url: security/schwarz-it-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/schwarz-it-agentic-access.yml
+- type: Spectral
+  url: rules/schwarz-it-rules.yml
+- type: JSONLD
+  url: json-ld/schwarz-it-context.jsonld
+- type: Vocabulary
+  url: vocabulary/schwarz-it-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/schwarz-it-data-model.yml
+- type: Components
+  url: components/schwarz-it-components.yml
+- type: Conventions
+  url: conventions/schwarz-it-conventions.yml
+- type: Lifecycle
+  url: lifecycle/schwarz-it-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/schwarz-it-problem-types.yml
+- type: Conformance
+  url: conformance/schwarz-it-conformance.yml
+- type: Overlay
+  url: overlays/schwarz-it-api-linter-service-overlay.yaml
+- type: Hosts
+  url: hosts/schwarz-it-hosts.yml
+- type: SDKs
+  url: packages/schwarz-it-packages.yml
+- type: Packages
+  url: packages/schwarz-it-packages.yml
+- type: PrivacyPolicy
+  url: https://jobs.schwarz/en/privacy-policy
 - type: Website
+  url: https://jobs.schwarz
+- type: GitHubOrganization
+  url: https://github.com/SchwarzIT
+- type: GitHubRepository
+  name: api-linter-rules (Schwarz Spectral API ruleset)
   url: https://github.com/SchwarzIT/api-linter-rules
+
+apis:
+- aid: schwarz-it:schwarz-it-health-probe-api
+  name: Schwarz IT Health Probe API
+  description: The health-probe API from Schwarz IT — 1 operation(s) for health-probe.
+  humanURL: https://github.com/SchwarzIT/api-linter-service
+  tags:
+  - health-probe
+  properties:
+  - type: OpenAPI
+    url: openapi/schwarz-it-health-probe-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/SchwarzIT/api-linter-service
+  - type: JSONSchema
+    url: json-schema/schwarz-it-create-linting-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/schwarz-it-created-linting-dto-schema.json
+- aid: schwarz-it:schwarz-it-lintings-api
+  name: Schwarz IT Lintings API
+  description: The lintings API from Schwarz IT — 1 operation(s) for lintings.
+  humanURL: https://github.com/SchwarzIT/api-linter-service
+  tags:
+  - lintings
+  properties:
+  - type: OpenAPI
+    url: openapi/schwarz-it-lintings-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/SchwarzIT/api-linter-service
+  - type: JSONSchema
+    url: json-schema/schwarz-it-create-linting-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/schwarz-it-created-linting-dto-schema.json
+- aid: schwarz-it:schwarz-it-rules-api
+  name: Schwarz IT Rules API
+  description: The rules API from Schwarz IT — 1 operation(s) for rules.
+  humanURL: https://github.com/SchwarzIT/api-linter-service
+  tags:
+  - rules
+  properties:
+  - type: OpenAPI
+    url: openapi/schwarz-it-rules-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/SchwarzIT/api-linter-service
+  - type: JSONSchema
+    url: json-schema/schwarz-it-create-linting-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/schwarz-it-created-linting-dto-schema.json
+x-enrichment:
+  date: '2026-10-09'
+  status: enriched
+  artifacts_added: 25
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: 'Enriched 2026-10-09: website and identity verified (partial) from the provider''s own pages; probed URLs below.'
+  evidence:
+  - url: https://raw.githubusercontent.com/api-evangelist/schwarz-it/refs/heads/main/apis.yml
+    status: null

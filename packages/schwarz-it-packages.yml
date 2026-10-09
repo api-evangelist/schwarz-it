@@ -1,0 +1,100 @@
+generated: '2026-10-09'
+method: searched
+source: https://github.com/SchwarzIT
+description: 'Packages published from the SchwarzIT GitHub organization, verified against registry metadata endpoints (registry.npmjs.org, search.maven.org,
+  proxy.golang.org, registry.terraform.io, plugins.jetbrains.com). The API Linting Service itself is not published to a registry: its package.json
+  (name api-linting-service, version 1.1.0) is marked "private": true and the README installs it from source with docker-compose. The api-linter-rules
+  ruleset package.json (version 2.0.0) is also private; the rules are consumed as raw Spectral YAML files (spectral-api.yml, spectral-async-api.yml,
+  ...) from the repository.'
+packages:
+- name: spectral-intellij-plugin (com.schwarzit.spectral-intellij-plugin)
+  registry: jetbrains-marketplace
+  url: https://plugins.jetbrains.com/plugin/18520-spectral
+  language: kotlin
+  official: true
+  version: 3.0.3
+  published: '2025-01-21'
+  note: IntelliJ plugin wrapping the Spectral OpenAPI linter; source https://github.com/SchwarzIT/spectral-intellij-plugin
+- name: io.github.schwarzit:kotlin-rfc9457-problem-details
+  registry: maven-central
+  url: https://search.maven.org/artifact/io.github.schwarzit/kotlin-rfc9457-problem-details
+  language: kotlin
+  official: true
+  version: 1.1.0
+  published: '2024-12-13'
+  note: Kotlin implementation of RFC 9457 problem details; source https://github.com/SchwarzIT/kotlin-rfc9457-problem-details
+- name: sci-rest-client
+  registry: npm
+  url: https://www.npmjs.com/package/sci-rest-client
+  language: typescript
+  official: true
+  version: 1.4.0
+  published: '2024-04-15'
+  note: REST client for the SAP Cloud Integration Integration Content API (a third-party API); repository git+https://github.com/SchwarzIT/sci-rest-client.git
+  ownership_audit: metadata names jobs.schwarz
+- name: github.com/SchwarzIT/community-stackit-go-client
+  registry: go
+  url: https://pkg.go.dev/github.com/SchwarzIT/community-stackit-go-client
+  language: go
+  official: true
+  version: v1.33.4
+  published: '2026-08-28'
+  note: Community-maintained Go client for STACKIT APIs (per the repo description), published by the SchwarzIT org.
+- name: SchwarzIT/stackit (terraform-provider-stackit)
+  registry: terraform
+  url: https://registry.terraform.io/providers/SchwarzIT/stackit
+  language: go
+  official: true
+  version: 1.34.15
+  published: '2026-10-08'
+  note: Community-maintained STACKIT Terraform provider (per the repo description).
+- name: sit-onyx
+  registry: npm
+  url: https://www.npmjs.com/package/sit-onyx
+  language: typescript
+  official: false
+  version: 1.21.0
+  published: '2026-09-24'
+  note: Vue.js component library / design system; repository https://github.com/SchwarzIT/onyx (npm description says "created by Schwarz Digits").
+    See components/.
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: '@sit-onyx/headless'
+  registry: npm
+  url: https://www.npmjs.com/package/@sit-onyx/headless
+  language: typescript
+  official: false
+  version: 0.12.0
+  published: '2026-08-13'
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: '@sit-onyx/nuxt'
+  registry: npm
+  url: https://www.npmjs.com/package/@sit-onyx/nuxt
+  language: typescript
+  official: false
+  version: 1.1.2
+  published: '2026-08-13'
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: '@sit-onyx/icons'
+  registry: npm
+  url: https://www.npmjs.com/package/@sit-onyx/icons
+  language: typescript
+  official: false
+  version: 1.12.0
+  published: '2026-08-13'
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: '@sit-onyx/chartjs-plugin'
+  registry: npm
+  url: https://www.npmjs.com/package/@sit-onyx/chartjs-plugin
+  language: typescript
+  official: false
+  version: 1.0.0
+  published: '2025-09-12'
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: api-linting-service
+  registry: none
+  url: https://github.com/SchwarzIT/api-linter-service
+  language: typescript
+  official: true
+  version: null
+  published: null
+  note: 'Not published to any registry -- package.json is "private": true (version 1.1.0 in source); distributed as source + docker-compose.'

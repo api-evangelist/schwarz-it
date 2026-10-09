@@ -1,0 +1,89 @@
+{
+  "@context": {
+    "@vocab": "https://schwarz-it.example/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schwarz": "https://schwarz-it.example/schema#",
+    "CreateLintingDto": "schwarz:CreateLintingDto",
+    "apiType": {
+      "@id": "schwarz:apiType",
+      "@type": "xsd:string"
+    },
+    "apiSpecAsBase64": {
+      "@id": "schwarz:apiSpecAsBase64",
+      "@type": "xsd:string"
+    },
+    "SpectralResultPosition": "schwarz:SpectralResultPosition",
+    "line": {
+      "@id": "schwarz:line",
+      "@type": "xsd:decimal"
+    },
+    "character": {
+      "@id": "schwarz:character",
+      "@type": "xsd:decimal"
+    },
+    "SpectralResultRange": "schwarz:SpectralResultRange",
+    "start": {
+      "@id": "schwarz:start"
+    },
+    "end": {
+      "@id": "schwarz:end"
+    },
+    "SpectralResult": "schwarz:SpectralResult",
+    "path": {
+      "@id": "schwarz:path",
+      "@container": "@list"
+    },
+    "code": {
+      "@id": "schwarz:code"
+    },
+    "range": {
+      "@id": "schwarz:range"
+    },
+    "message": {
+      "@id": "schwarz:message",
+      "@type": "xsd:string"
+    },
+    "severity": {
+      "@id": "schwarz:severity",
+      "@type": "xsd:decimal"
+    },
+    "source": {
+      "@id": "schwarz:source",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "schwarz:tags",
+      "@container": "@list"
+    },
+    "CreatedLintingDto": "schwarz:CreatedLintingDto",
+    "description": {
+      "@id": "schwarz:description",
+      "@type": "xsd:string"
+    },
+    "linkApiRules": {
+      "@id": "schwarz:linkApiRules",
+      "@type": "xsd:string"
+    },
+    "highestSeverityLevel": {
+      "@id": "schwarz:highestSeverityLevel",
+      "@type": "xsd:string"
+    },
+    "isValidSpec": {
+      "@id": "schwarz:isValidSpec",
+      "@type": "xsd:boolean"
+    },
+    "lintingResults": {
+      "@id": "schwarz:lintingResults",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Schwarz IT API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Schwarz IT's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-09) from openapi/schwarz-it-api-linter-service-openapi.yml.",
+  "dcterms:created": "2026-10-09",
+  "dcterms:source": [
+    "openapi/schwarz-it-api-linter-service-openapi.yml"
+  ]
+}

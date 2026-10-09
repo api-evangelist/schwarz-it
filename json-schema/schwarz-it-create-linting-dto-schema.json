@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/schwarz-it/main/json-schema/schwarz-it-create-linting-dto-schema.json",
+  "title": "CreateLintingDto",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/CreateLintingDto",
+  "type": "object",
+  "properties": {
+    "apiType": {
+      "type": "string",
+      "description": "The API type to check.",
+      "enum": [
+        "backend_for_frontend",
+        "legacy_api",
+        "product_api"
+      ]
+    },
+    "apiSpecAsBase64": {
+      "type": "string",
+      "description": "The base64 representation of your API spec."
+    }
+  },
+  "required": [
+    "apiType",
+    "apiSpecAsBase64"
+  ]
+}

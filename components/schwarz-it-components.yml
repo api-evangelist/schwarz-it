@@ -1,0 +1,23 @@
+generated: '2026-10-09'
+method: searched
+source: https://github.com/SchwarzIT/onyx
+description: >-
+  onyx -- "A design system and Vue.js component library created by Schwarz Digits", published from the
+  SchwarzIT GitHub organization (Apache-2.0) with docs at https://onyx.schwarz (HTTP 200) and a
+  Storybook at https://storybook.onyx.schwarz (HTTP 200). It is a general UI library, not an embeddable
+  surface of the API Linting Service; the linting API has no client-side components.
+docs:
+  - https://onyx.schwarz
+  - https://storybook.onyx.schwarz
+libraries:
+  - {name: sit-onyx, purpose: Vue.js component library; catalogued in packages/}
+  - {name: '@sit-onyx/nuxt', purpose: Nuxt module integrating onyx}
+  - {name: '@sit-onyx/headless', purpose: Headless composables for Vue}
+families:
+  onyx:
+    description: Vue.js design-system components with icons, flags, a Chart.js plugin, Storybook utilities, a VitePress theme and a Nuxt docs layer.
+    components:
+      - {name: sit-onyx, description: Core Vue.js component library}
+      - {name: '@sit-onyx/icons', description: SVG icons for the onyx design system}
+      - {name: '@sit-onyx/flags', description: SVG country flags for the onyx design system}
+      - {name: '@sit-onyx/chartjs-plugin', description: Chart.js plugin for the onyx design system}

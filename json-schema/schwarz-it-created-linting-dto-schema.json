@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/schwarz-it/main/json-schema/schwarz-it-created-linting-dto-schema.json",
+  "title": "CreatedLintingDto",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/schwarz-it-api-linter-service-openapi.yml#/components/schemas/CreatedLintingDto",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Information if your OpenApi Spec does comply with company rules."
+    },
+    "linkApiRules": {
+      "type": "string",
+      "description": "Link to Company API Best Practices"
+    },
+    "highestSeverityLevel": {
+      "type": "string",
+      "description": "Highest severity level during linting.",
+      "enum": [
+        "Error",
+        "Warn",
+        "Info",
+        "Hint"
+      ]
+    },
+    "isValidSpec": {
+      "type": "boolean",
+      "description": "Indicates if given OpenAPI Spec complies to company API best practices."
+    },
+    "lintingResults": {
+      "description": "Example API linting result",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SpectralResult"
+      }
+    }
+  },
+  "required": [
+    "description",
+    "linkApiRules",
+    "isValidSpec",
+    "lintingResults"
+  ],
+  "$defs": {
+    "SpectralResult": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "description": "The path of the error as JsonPath",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "code": {
+          "description": "The code of the rule, can be used to identify the rule that caused the issue",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "range": {
+          "description": "The range of the error inside the linted document",
+          "allOf": [
+            {
+              "$ref": "#/$defs/SpectralResultRange"
+            }
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "The message associated with the issue"
+        },
+        "severity": {
+          "type": "number",
+          "description": "The severity of the issue. 0 = \"Error\", 1 = \"Warning\", 2 = \"Information\", 3 = \"Hint\"",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "source": {
+          "type": "string",
+          "description": "A human-readable string describing the source of this diagnostic, e.g. \"typescript\" or \"super lint\"."
+        },
+        "tags": {
+          "description": "Additional metadata about the diagnostic.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "path",
+        "code",
+        "range",
+        "severity"
+      ]
+    },
+    "SpectralResultPosition": {
+      "type": "object",
+      "properties": {
+        "line": {
+          "type": "number",
+          "description": "Line position in a document (zero-based)"
+        },
+        "character": {
+          "type": "number",
+          "description": "Character offset on a line in a document (zero-based). Assuming that the line is represented as a string, the `character` value represents the gap between the `character` and `character + 1`. If the character value is greater than the line length it defaults back to the line length."
+        }
+      },
+      "required": [
+        "line",
+        "character"
+      ]
+    },
+    "SpectralResultRange": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "description": "The starting position of the issue inside the linted document",
+          "allOf": [
+            {
+              "$ref": "#/$defs/SpectralResultPosition"
+            }
+          ]
+        },
+        "end": {
+          "description": "The ending position of the issue inside the linted document",
+          "allOf": [
+            {
+              "$ref": "#/$defs/SpectralResultPosition"
+            }
+          ]
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ]
+    }
+  }
+}

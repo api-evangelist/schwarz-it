@@ -1,0 +1,10 @@
+generated: '2026-10-09'
+method: generated
+source: >-
+  Packaged Agent Skills generated from openapi/schwarz-it-api-linter-service-openapi.yml. No
+  provider-published skills or AGENTS.md were found (SchwarzIT/api-linter-service AGENTS.md 404).
+skills:
+- file: schwarz-it-lint-an-openapi-spec.md
+  name: lint-an-openapi-spec
+  api: openapi/schwarz-it-api-linter-service-openapi.yml
+  operations: [HealthProbeController_returnLive, RulesController_getCompanyApiRules, LintingsController_createLinting]

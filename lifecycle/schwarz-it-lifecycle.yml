@@ -1,0 +1,12 @@
+generated: '2026-10-09'
+method: derived
+source: openapi/schwarz-it-api-linter-service-openapi.yml
+versioning: >-
+  URI path major version (/api-linting/api/v1/); info.version 1.0.0 in the contract; package.json
+  version 1.1.0. No versioning policy is published.
+deprecation: >-
+  No deprecation policy published; no operations marked deprecated in the contract. The project is
+  self-hosted open source (Apache-2.0); last repository push 2026-03-04 (GitHub API).
+status_page: null
+sla: none -- self-hosted software, no Schwarz-operated public endpoint.
+deprecated_operations: []

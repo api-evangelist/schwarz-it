@@ -1,0 +1,47 @@
+generated: '2026-10-09'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 3
+  own: 2
+  other_domain: 0
+  platform: 1
+  roles:
+  - api
+  - source
+  - website
+hosts:
+- host: api.jobs.schwarz
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: jobs.schwarz
+  role: api
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - GitHubOrganization
+  - GitHubRepository
+  serves:
+  - docs
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: jobs.schwarz
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - PrivacyPolicy
+  - Website
+  serves: []
+  registrable_domain: jobs.schwarz
+  role: website
+  relation: own
