@@ -1,12 +1,12 @@
 openapi: 3.2.0
 info:
-  title: Schwarz It Lintings API
+  title: YOUR_LINTING_API_TITLE Lintings API
+  description: YOUR_API_DESCRIPTION
   version: 1.0.0
   contact:
     name: YOUR_CONTACT_NAME
     url: YOUR_CONTACT_LINK
     email: YOUR_CONTACT@EMAIL.COM
-  description: 'Operations tagged lintings across 2 of this provider''s published API definitions: schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: http://localhost:3001
 - url: YOUR_PROD_SERVER_NAME
@@ -37,11 +37,34 @@ paths:
       tags:
       - lintings
       x-summary-source: derived
-    servers:
-    - url: http://localhost:3001
-    - url: YOUR_PROD_SERVER_NAME
 components:
   schemas:
+    SpectralResultRange:
+      type: object
+      properties:
+        start:
+          description: The starting position of the issue inside the linted document
+          allOf:
+          - $ref: '#/components/schemas/SpectralResultPosition'
+        end:
+          description: The ending position of the issue inside the linted document
+          allOf:
+          - $ref: '#/components/schemas/SpectralResultPosition'
+      required:
+      - start
+      - end
+    SpectralResultPosition:
+      type: object
+      properties:
+        line:
+          type: number
+          description: Line position in a document (zero-based)
+        character:
+          type: number
+          description: Character offset on a line in a document (zero-based). Assuming that the line is represented as a string, the `character` value represents the gap between the `character` and `character + 1`. If the character value is greater than the line length it defaults back to the line length.
+      required:
+      - line
+      - character
     CreateLintingDto:
       type: object
       properties:
@@ -60,20 +83,40 @@ components:
       required:
       - apiType
       - apiSpecAsBase64
-    SpectralResultRange:
+    CreatedLintingDto:
       type: object
       properties:
-        start:
-          description: The starting position of the issue inside the linted document
-          allOf:
-          - $ref: '#/components/schemas/SpectralResultPosition'
-        end:
-          description: The ending position of the issue inside the linted document
-          allOf:
-          - $ref: '#/components/schemas/SpectralResultPosition'
+        description:
+          type: string
+          description: Information if your OpenApi Spec does comply with company rules.
+          example: Given API Spec DOES comply with company API rules.
+        linkApiRules:
+          type: string
+          description: Link to Company API Best Practices
+          example: https://press-release-demo.prod.sit.sys.odj.cloud/architecture-best-practices/apis/
+        highestSeverityLevel:
+          type: string
+          description: Highest severity level during linting.
+          example: Warn
+          enum:
+          - Error
+          - Warn
+          - Info
+          - Hint
+        isValidSpec:
+          type: boolean
+          description: Indicates if given OpenAPI Spec complies to company API best practices.
+          example: true
+        lintingResults:
+          description: Example API linting result
+          type: array
+          items:
+            $ref: '#/components/schemas/SpectralResult'
       required:
-      - start
-      - end
+      - description
+      - linkApiRules
+      - isValidSpec
+      - lintingResults
     SpectralResult:
       type: object
       properties:
@@ -128,55 +171,6 @@ components:
       - code
       - range
       - severity
-    CreatedLintingDto:
-      type: object
-      properties:
-        description:
-          type: string
-          description: Information if your OpenApi Spec does comply with company rules.
-          example: Given API Spec DOES comply with company API rules.
-        linkApiRules:
-          type: string
-          description: Link to Company API Best Practices
-          example: https://press-release-demo.prod.sit.sys.odj.cloud/architecture-best-practices/apis/
-        highestSeverityLevel:
-          type: string
-          description: Highest severity level during linting.
-          example: Warn
-          enum:
-          - Error
-          - Warn
-          - Info
-          - Hint
-        isValidSpec:
-          type: boolean
-          description: Indicates if given OpenAPI Spec complies to company API best practices.
-          example: true
-        lintingResults:
-          description: Example API linting result
-          type: array
-          items:
-            $ref: '#/components/schemas/SpectralResult'
-      required:
-      - description
-      - linkApiRules
-      - isValidSpec
-      - lintingResults
-    SpectralResultPosition:
-      type: object
-      properties:
-        line:
-          type: number
-          description: Line position in a document (zero-based)
-        character:
-          type: number
-          description: Character offset on a line in a document (zero-based). Assuming that the line is represented as a string, the `character` value represents the gap between the `character` and `character + 1`. If the character value is greater than the line length it defaults back to the line length.
-      required:
-      - line
-      - character
 externalDocs:
   description: YOUR_DOCS_NAME
   url: YOUR_DOCS_LINK
-x-refined-from:
-- schwarz-it-api-linter-service-openapi.json
-- schwarz-it-api-linter-service-openapi.yml

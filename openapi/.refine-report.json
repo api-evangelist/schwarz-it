@@ -1,33 +1,29 @@
 {
   "provider": "schwarz-it",
   "sources": [
-    "_original/schwarz-it-api-linter-service-openapi.json",
-    "schwarz-it-api-linter-service-openapi.yml"
+    "_original/schwarz-it-api-linter-service-openapi.json"
   ],
   "outputs": [
     "schwarz-it-health-probe-api-openapi.yml",
     "schwarz-it-lintings-api-openapi.yml",
     "schwarz-it-rules-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/schwarz-it-api-linter-service-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "schwarz-it-api-linter-service-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "schwarz-it-api-linter-service-openapi.json: declared missing tag: health-probe",
     "schwarz-it-api-linter-service-openapi.json: declared missing tag: lintings",
     "schwarz-it-api-linter-service-openapi.json: declared missing tag: rules",
-    "schwarz-it-api-linter-service-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "schwarz-it-api-linter-service-openapi.yml: declared missing tag: health-probe",
-    "schwarz-it-api-linter-service-openapi.yml: declared missing tag: lintings",
-    "schwarz-it-api-linter-service-openapi.yml: declared missing tag: rules",
-    "tag 'health-probe' spans 2 source specs (schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml): per-path servers applied",
-    "tag 'lintings' spans 2 source specs (schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml): per-path servers applied",
-    "tag 'rules' spans 2 source specs (schwarz-it-api-linter-service-openapi.json, schwarz-it-api-linter-service-openapi.yml): per-path servers applied",
-    "apis.yml register: written (+3 apis, 3 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/schwarz-it-api-linter-service-openapi.yml: archived document superseded by a larger archived document",
+    "schwarz-it-health-probe-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "schwarz-it-lintings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "schwarz-it-rules-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
